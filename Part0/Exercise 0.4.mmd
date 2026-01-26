@@ -1,0 +1,33 @@
+sequenceDiagram
+    participant Browser
+    participant Server
+
+    Note over Browser: User types note and click save button
+
+    Browser->>Server: Post https://studies.cs.helsinki.fi/exampleapp/new_note
+    activate Server
+    Server-->>Browser: HTTP 302 found and redirect page to /exampleapp/notes
+    deactivate Server
+
+    Browser->>Server: Get https://studies.cs.helsinki.fi/exampleapp/notes
+    activate Server
+    Server-->>Browser: HTML Document
+    deactivate Server
+
+    Browser->>Server: Get https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate Server
+    Server-->>Browser: the CSS file named as main.css
+    deactivate Server
+
+    Browser->>Server: Get https://studies.cs.helsinki.fi/exampleapp/main.js
+    activate Server
+    Server-->>Browser: the javaScript file named as main.js
+    deactivate Server
+
+    Browser->>Server: Get https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate Server
+    Server-->>Browser: [{ content: "0.4", date: "2026-01-26T14:18:19.954Z" }]
+    deactivate Server
+
+
+
