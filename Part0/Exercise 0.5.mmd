@@ -1,0 +1,25 @@
+sequenceDiagram
+    participant Browser
+    participant Server
+
+    Browser->>Server: Get https://studies.cs.helsinki.fi/exampleapp/spa
+    activate Server
+    Server-->>Browser: HTML Document for SPA
+    deactivate Server
+
+    Browser->>Server: Get https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate Server
+    Server-->>Browser: the CSS file named as main.css
+    deactivate Server
+
+    Browser->>Server: Get 	https://studies.cs.helsinki.fi/exampleapp/spa.js
+    activate Server
+    Server-->>Browser: the javaScript file named as spa.js
+    deactivate Server
+
+    Browser->>Server: Get 	https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate Server
+    Server-->>Browser: The Data in JSON format
+    deactivate Server
+
+    Note over Browser: Browser Renders the data recieved from server
